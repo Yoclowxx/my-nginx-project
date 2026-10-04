@@ -43,7 +43,7 @@ docker images
 
 ---
 
-### 3. Запуск контейнера с ограничениями
+### 4. Запуск контейнера с ограничениями
 
 ```bash
 docker run -d --name nginx-logs -p 8080:80 --memory="50m" --cpus="0.5" --read-only --tmpfs /var/cache/nginx --tmpfs /var/run --tmpfs /tmp -v %cd%\nginx_logs:/var/log/nginx my-nginx-practice:v1
@@ -60,7 +60,7 @@ docker run -d --name nginx-logs -p 8080:80 --memory="50m" --cpus="0.5" --read-on
 
 ---
 
-### 3. Проверка работоспособности
+### 5. Проверка работоспособности
 
 **Контейнер запущен:**
 ```bash
