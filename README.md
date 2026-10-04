@@ -19,6 +19,10 @@
 | `README.md` | Этот файл. |
 
 ---
+##  Папка
+![Папка](screenshots/15-ddd.png)
+
+---
 
 ## 🛠️ Команды для запуска и проверки
 
@@ -30,6 +34,8 @@ docker images
 ```
 
 ![Docker images — образ собран](screenshots/13-create-files.png)
+
+![Docker](screenshots/16-docker.png)
 
 ---
 ### 2. Запуск обычного контейнера
