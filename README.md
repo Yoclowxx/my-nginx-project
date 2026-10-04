@@ -1,20 +1,20 @@
-\# Docker practice — Уровень 1 (Базовый)
+# Docker practice — Уровень 1 (Базовый)
 
 
 
-\*\*Выполнил:\*\* Камзинов Тамерлан Канатович  
+**Выполнил:** Камзинов Тамерлан Канатович  
 
-\*\*Группа:\*\* ИБАС 24-11-2  
+**Группа:** ИБАС 24-11-2  
 
-\*\*Тема:\*\* Контейнеризация веб-сервера Nginx с ограничениями безопасности
-
-
-
-\---
+**Тема:** Контейнеризация веб-сервера Nginx с ограничениями безопасности
 
 
 
-\## 📁 Описание файлов проекта
+---
+
+
+
+## 📁 Описание файлов проекта
 
 
 
@@ -38,15 +38,15 @@
 
 
 
-\---
+---
 
 
 
-\## 🛠️ Команды для запуска и проверки
+## 🛠️ Команды для запуска и проверки
 
 
 
-\### 1. Сборка образа
+### 1. Сборка образа
 
 
 
@@ -60,11 +60,11 @@ docker images
 
 
 
-!\[docker images](screenshots/13-create-files.png)
+![docker images](screenshots/13-create-files.png)
 
 
 
-\### 2. Запуск контейнера с ограничениями
+### 2. Запуск контейнера с ограничениями
 
 
 
@@ -76,29 +76,29 @@ docker run -d --name nginx-logs -p 8080:80 --memory="50m" --cpus="0.5" --read-on
 
 
 
-\*\*Что делают флаги:\*\*
+**Что делают флаги:\*\*
 
-\- `-d` — запуск в фоне
+- `-d` — запуск в фоне
 
-\- `-p 8080:80` — порт 8080 на хосте → 80 в контейнере
+- `-p 8080:80` — порт 8080 на хосте → 80 в контейнере
 
-\- `--memory="50m"` — лимит RAM 50 МБ
+- `--memory="50m"` — лимит RAM 50 МБ
 
-\- `--cpus="0.5"` — лимит CPU 0.5 ядра
+- `--cpus="0.5"` — лимит CPU 0.5 ядра
 
-\- `--read-only` — корневая ФС только для чтения
+- `--read-only` — корневая ФС только для чтения
 
-\- `--tmpfs ...` — временные папки Nginx в RAM
+- `--tmpfs ...` — временные папки Nginx в RAM
 
-\- `-v %cd%\\nginx\_logs:/var/log/nginx` — логи на хост
-
-
-
-\### 3. Проверка работоспособности
+- `-v %cd%\\nginx\_logs:/var/log/nginx` — логи на хост
 
 
 
-\*\*Контейнер запущен:\*\*
+### 3. Проверка работоспособности
+
+
+
+**Контейнер запущен:**
 
 ```bash
 
@@ -108,19 +108,19 @@ docker ps
 
 
 
-!\[docker ps](screenshots/03-run-container.png)
+![docker ps](screenshots/03-run-container.png)
 
 
 
-\*\*Сайт открывается:\*\* http://localhost:8080
+**Сайт открывается:** http://localhost:8080
 
 
 
-!\[Сайт](screenshots/07-site-browser.png)
+![Сайт](screenshots/07-site-browser.png)
 
 
 
-\*\*Запросы через curl:\*\*
+**Запросы через curl:**
 
 ```bash
 
@@ -130,11 +130,11 @@ curl.exe http://localhost:8080
 
 
 
-!\[curl](screenshots/11-curl-requests.png)
+![curl](screenshots/11-curl-requests.png)
 
 
 
-\*\*Read-only включён:\*\*
+**Read-only включён:**
 
 ```bash
 
@@ -144,11 +144,11 @@ docker inspect nginx-logs | Select-String "ReadonlyRootfs"
 
 
 
-!\[ReadonlyRootfs](screenshots/10-readonly.png)
+![ReadonlyRootfs](screenshots/10-readonly.png)
 
 
 
-\*\*Логи на хосте:\*\*
+**Логи на хосте:**
 
 ```bash
 
@@ -160,27 +160,27 @@ type nginx\_logs\\access.log
 
 
 
-!\[Папка логов](screenshots/12-create-logs-folder.png)
+![Папка логов](screenshots/12-create-logs-folder.png)
 
-!\[Логи](screenshots/09-logs-dir.png)
+![Логи](screenshots/09-logs-dir.png)
 
-!\[access.log](screenshots/08-access-log.png)
-
-
-
-\---
+![access.log](screenshots/08-access-log.png)
 
 
 
-\## 🎯 Что демонстрирует проект
+---
 
 
 
-1\. \*\*Докеризация Nginx\*\* — образ на базе `nginx:alpine` (\~26 МБ).
+## 🎯 Что демонстрирует проект
 
-2\. \*\*Ограничение ресурсов\*\* — 50 МБ RAM, 0.5 CPU.
 
-3\. \*\*Безопасность\*\* — корневая ФС read-only.
 
-4\. \*\*Volume для логов\*\* — логи сохраняются на хосте.
+1. **Докеризация Nginx** — образ на базе `nginx:alpine` (~26 МБ).
+
+2. **Ограничение ресурсов** — 50 МБ RAM, 0.5 CPU.
+
+3. **Безопасность** — корневая ФС read-only.
+
+4. **Volume для логов** — логи сохраняются на хосте.
 
