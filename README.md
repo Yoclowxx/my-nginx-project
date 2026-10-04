@@ -32,8 +32,18 @@ docker images
 ![Docker images — образ собран](screenshots/13-create-files.png)
 
 ---
+### 2. Запуск обычного контейнера
 
-### 2. Запуск контейнера с ограничениями
+![Запуск контейнера](screenshots/03-run-container.png)
+
+---
+### 3. Результат
+
+![Site](screenshots/14-site.png)
+
+---
+
+### 3. Запуск контейнера с ограничениями
 
 ```bash
 docker run -d --name nginx-logs -p 8080:80 --memory="50m" --cpus="0.5" --read-only --tmpfs /var/cache/nginx --tmpfs /var/run --tmpfs /tmp -v %cd%\nginx_logs:/var/log/nginx my-nginx-practice:v1
@@ -47,8 +57,6 @@ docker run -d --name nginx-logs -p 8080:80 --memory="50m" --cpus="0.5" --read-on
 - `--read-only` — корневая ФС только для чтения
 - `--tmpfs ...` — временные папки Nginx в RAM
 - `-v %cd%\nginx_logs:/var/log/nginx` — логи на хост
-
-![Запуск контейнера](screenshots/03-run-container.png)
 
 ---
 
